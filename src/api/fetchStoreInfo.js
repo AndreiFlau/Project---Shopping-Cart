@@ -11,6 +11,8 @@ async function fetchStoreInfo() {
       console.log(`Failed to fetch product ${index}: `, error);
     }
   }
+
+  return products;
 }
 
 export default fetchStoreInfo;

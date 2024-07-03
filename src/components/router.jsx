@@ -7,8 +7,10 @@ import Shop from "./Shop/Shop";
 import useStoreInfo from "./hooks/useStoreInfo";
 
 function Routes() {
-  const products = useStoreInfo();
-  console.log(products);
+  const productsState = useStoreInfo();
+  // if (productsState.loading) {
+  //   return <div>Loading...</div>;
+  // }
   const router = createBrowserRouter([
     {
       path: "/",
@@ -16,7 +18,10 @@ function Routes() {
       children: [
         { index: true, element: <Navigate to="homepage" replace /> },
         { path: "homepage", element: <Homepage /> },
-        { path: "shop", element: <Shop /> },
+        {
+          path: "shop",
+          element: <Shop products={productsState.data} loading={productsState.loading} error={productsState.error} />,
+        },
         { path: "shop/cart", element: <ShoppingCart /> },
       ],
       errorElement: <ErrorPage />,

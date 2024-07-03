@@ -19,8 +19,7 @@ function useStoreInfo() {
       }
     }
     fetchData();
-  });
-
+  }, []);
   return { data, loading, error };
 }
 
