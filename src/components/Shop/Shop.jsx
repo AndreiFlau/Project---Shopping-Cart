@@ -11,20 +11,37 @@ function Shop({ products, loading, error }) {
 
   async function handleBuy(product) {
     const quantity = quantities[product.title];
-    for (let index = 0; index < quantity; index++) {
-      await addToCart(product);
+    if (quantity < 0) {
+      alert("You can only buy 1 or more products.");
+    } else {
+      if (!quantity) {
+        await addToCart(product);
+      } else {
+        for (let index = 0; index < quantity; index++) {
+          await addToCart(product);
+        }
+      }
+      navigate("cart");
     }
-    navigate("cart");
     console.log("cart items", cartItems);
   }
 
   function handleAddCart(product) {
     const quantity = quantities[product.title];
-    for (let index = 0; index <= quantity; index++) {
-      addToCart(product);
+    if (quantity < 0) {
+      alert("You can only buy 1 or more products.");
+    } else {
+      if (quantity <= 1 || !quantity) {
+        addToCart(product);
+        alert(`${product.title} added to the cart`);
+      } else {
+        for (let index = 0; index < quantity; index++) {
+          addToCart(product);
+        }
+        alert(`${product.title} added ${quantity} times to the cart`);
+      }
+      console.log("cart items", cartItems);
     }
-    alert(`${product.title} added to the cart`);
-    console.log("cart items", cartItems);
   }
 
   function handleQuantityChange(productTitle, quantity) {
