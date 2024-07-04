@@ -2,8 +2,23 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Shop from "./Shop";
 import { BrowserRouter as Router } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 
 describe("Shop component", () => {
+  const products = [
+    {
+      title: "product1",
+      image: "/image.jpg",
+      price: 100,
+      description: "A product 1",
+    },
+    {
+      title: "product2",
+      image: "/image2.jpg",
+      price: 50,
+      description: "A product 2",
+    },
+  ];
   it("renders loading state", () => {
     render(
       <Router>
@@ -23,21 +38,6 @@ describe("Shop component", () => {
   });
 
   it("shows the items", () => {
-    const products = [
-      {
-        title: "product1",
-        image: "/image.jpg",
-        price: 100,
-        description: "A product 1",
-      },
-      {
-        title: "product2",
-        image: "/image2.jpg",
-        price: 50,
-        description: "A product 2",
-      },
-    ];
-
     render(
       <Router>
         <Shop products={products} loading={false} error={false} />
@@ -58,5 +58,20 @@ describe("Shop component", () => {
       </Router>
     );
     expect(screen.getByText(/shopping cart/i)).toBeInTheDocument();
+  });
+
+  it("increases the number of items in the cart", async () => {
+    const user = userEvent.setup();
+    render(
+      <Router>
+        <Shop products={products} loading={false} error={false} />
+      </Router>
+    );
+    expect(screen.getByRole("link", { name: /shopping cart/i })).toBeInTheDocument();
+    const buttons = screen.getAllByRole("button", { name: /add to cart/i });
+    const firstBtn = buttons[0];
+    await user.click(firstBtn);
+    await user.click(firstBtn);
+    expect(screen.getByRole("link", { name: "Shopping Cart (2)" })).toBeInTheDocument();
   });
 });

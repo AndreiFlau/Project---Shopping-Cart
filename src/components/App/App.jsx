@@ -5,7 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 function App() {
   return (
     <div>
-      <h1>Header</h1>
+      <h1>General Store</h1>
       <ul>
         <li>
           <Link to="homepage">Homepage</Link>

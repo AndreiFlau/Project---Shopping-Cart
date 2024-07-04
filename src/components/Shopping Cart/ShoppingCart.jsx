@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useCartItems from "../hooks/useCartItems";
 
 function ShoppingCart() {
@@ -19,17 +20,25 @@ function ShoppingCart() {
   return (
     <div>
       <h1>The shopping cart should appear here!</h1>
-      <ul>
-        {cartItems.map((product) => (
-          <div key={product.uuid} className="cart-card">
-            <li>
-              {product.title}
-              <button onClick={() => handleRemoval(product.uuid)}>Remove Item</button>
-            </li>
-          </div>
-        ))}
-      </ul>
-      <button onClick={() => handleCheckout(cartItems)}>Checkout</button>
+      {cartItems.length !== 0 ? (
+        <>
+          <ul>
+            {cartItems.map((product) => (
+              <div key={product.uuid} className="cart-card">
+                <li>
+                  {product.title}
+                  <button onClick={() => handleRemoval(product.uuid)}>Remove Item</button>
+                </li>
+              </div>
+            ))}
+          </ul>
+          <button onClick={() => handleCheckout(cartItems)}>Checkout</button>
+        </>
+      ) : (
+        <h2>
+          Your cart is empty! Buy something here: <Link to={"/shop"}>Shop</Link>
+        </h2>
+      )}
     </div>
   );
 }
