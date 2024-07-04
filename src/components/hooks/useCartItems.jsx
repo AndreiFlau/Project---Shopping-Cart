@@ -11,7 +11,7 @@ function useCartItems() {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  function addToCart(product) {
+  async function addToCart(product) {
     const productWithId = { ...product, uuid: uuidv4() };
     setCartItems((prevItems) => [...prevItems, productWithId]);
   }

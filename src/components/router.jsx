@@ -8,9 +8,6 @@ import useStoreInfo from "./hooks/useStoreInfo";
 
 function Routes() {
   const productsState = useStoreInfo();
-  // if (productsState.loading) {
-  //   return <div>Loading...</div>;
-  // }
   const router = createBrowserRouter([
     {
       path: "/",

@@ -17,12 +17,13 @@ function useStoreInfo() {
 
   useEffect(() => {
     async function fetchData() {
+      if (!loading) return;
       try {
         const products = await fetchStoreInfo();
         setData(products);
         localStorage.setItem("storedata", JSON.stringify(products));
       } catch (error) {
-        console.log("Error fetching:", error);
+        console.error("Error fetching:", error);
         setError(error);
       } finally {
         setLoading(false);

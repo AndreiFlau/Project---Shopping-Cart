@@ -1,14 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import useCartItems from "../hooks/useCartItems";
+import { useState } from "react";
 // import { useEffect, useState } from "react";
 
 function Shop({ products, loading, error }) {
   const navigate = useNavigate();
   const { cartItems, addToCart } = useCartItems();
+  const [quantities, setQuantities] = useState([]);
 
-  function handleBuy(product) {
-    addToCart(product);
+  async function handleBuy(product) {
+    await addToCart(product);
     navigate("cart");
     console.log("cart items", cartItems);
   }
@@ -34,6 +36,10 @@ function Shop({ products, loading, error }) {
               <img src={product.image} alt={product.title} />
               <p>{product.description}</p>
               <p>{product.price}</p>
+              <form>
+                <label htmlFor="quantity">Quantity</label>
+                <input type="number" id="quantity" min={0} onChange={(e) => e.target.value} />
+              </form>
               <button onClick={() => handleBuy(product)}>Buy</button>
               <button onClick={() => handleAddCart(product)}>Add to Cart</button>
             </div>

@@ -7,6 +7,13 @@ function ShoppingCart() {
     removeFromCart(productUuid);
   }
 
+  function handleCheckout(cartItems) {
+    alert(`You bought ${cartItems.length} items!`);
+    cartItems.forEach((product) => {
+      removeFromCart(product.uuid);
+    });
+  }
+
   console.log("Rendering cart items:", cartItems);
 
   return (
@@ -22,6 +29,7 @@ function ShoppingCart() {
           </div>
         ))}
       </ul>
+      <button onClick={() => handleCheckout(cartItems)}>Checkout</button>
     </div>
   );
 }
