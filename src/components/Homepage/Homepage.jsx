@@ -1,6 +1,8 @@
+import "./Homepage.css";
+
 function Homepage() {
   return (
-    <div>
+    <div className="homepage">
       <h1>Welcome to the General Store!</h1>
       <img
         sizes="(max-width: 1400px) 100vw, 1400px"
@@ -19,7 +21,7 @@ imgs/camera/camera_lt5iwp_c_scale,w_1400.jpg 1400w"
       <p>Shop for: </p>
       <ul>
         <li>
-          Electronics{" "}
+          <h2>Electronics </h2>
           <img
             sizes="(max-width: 1400px) 100vw, 1400px"
             srcSet="
@@ -38,7 +40,7 @@ imgs/electronics/electronics_ajrxfv_c_scale,w_1400.jpg 1400w"
           />
         </li>
         <li>
-          Clothing{" "}
+          <h2>Clothing </h2>
           <img
             sizes="(max-width: 1400px) 100vw, 1400px"
             srcSet="
@@ -59,7 +61,7 @@ imgs/clothing/clothing_yfndxl_c_scale,w_1400.jpg 1400w"
           />
         </li>
         <li>
-          Jewlery{" "}
+          <h2>Jewlery </h2>
           <img
             sizes="(max-width: 1400px) 100vw, 1400px"
             srcSet="

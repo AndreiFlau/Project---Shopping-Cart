@@ -1,0 +1,14 @@
+.homepage {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+img {
+  width: 90%;
+  max-height: 30vh;
+  object-fit: cover;
+}
+
+li {
+  list-style: none;
+}

@@ -5,15 +5,19 @@ import { Link, Outlet } from "react-router-dom";
 function App() {
   return (
     <div>
-      <h1>General Store</h1>
-      <ul>
-        <li>
-          <Link to="homepage">Homepage</Link>
-        </li>
-        <li>
-          <Link to="shop">Shop</Link>
-        </li>
-      </ul>
+      <header>
+        <h1>General Store</h1>
+        <div className="header-section">
+          <ul>
+            <li>
+              <Link to="homepage">Homepage</Link>
+            </li>
+            <li>
+              <Link to="shop">Shop</Link>
+            </li>
+          </ul>
+        </div>
+      </header>
       <Outlet />
     </div>
   );
