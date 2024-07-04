@@ -30,7 +30,7 @@ function useStoreInfo() {
       }
     }
     fetchData();
-  }, [data]);
+  }, [data, loading]);
   return { data, loading, error };
 }
 

@@ -7,18 +7,31 @@ import { useState } from "react";
 function Shop({ products, loading, error }) {
   const navigate = useNavigate();
   const { cartItems, addToCart } = useCartItems();
-  const [quantities, setQuantities] = useState([]);
+  const [quantities, setQuantities] = useState({});
 
   async function handleBuy(product) {
-    await addToCart(product);
+    const quantity = quantities[product.title];
+    for (let index = 0; index < quantity; index++) {
+      await addToCart(product);
+    }
     navigate("cart");
     console.log("cart items", cartItems);
   }
 
   function handleAddCart(product) {
-    addToCart(product);
+    const quantity = quantities[product.title];
+    for (let index = 0; index <= quantity; index++) {
+      addToCart(product);
+    }
     alert(`${product.title} added to the cart`);
     console.log("cart items", cartItems);
+  }
+
+  function handleQuantityChange(productTitle, quantity) {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [productTitle]: quantity,
+    }));
   }
 
   return (
@@ -38,7 +51,12 @@ function Shop({ products, loading, error }) {
               <p>{product.price}</p>
               <form>
                 <label htmlFor="quantity">Quantity</label>
-                <input type="number" id="quantity" min={0} onChange={(e) => e.target.value} />
+                <input
+                  type="number"
+                  id="quantity"
+                  min={0}
+                  onChange={(e) => handleQuantityChange(product.title, parseInt(e.target.value))}
+                />
               </form>
               <button onClick={() => handleBuy(product)}>Buy</button>
               <button onClick={() => handleAddCart(product)}>Add to Cart</button>
