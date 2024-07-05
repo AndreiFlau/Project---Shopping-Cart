@@ -1,13 +1,13 @@
 // import { useState } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import { Link, Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <header>
+      <header className={styles.header}>
         <h1>General Store</h1>
-        <div className="header-section">
+        <div className={styles.headerSection}>
           <ul>
             <li>
               <Link to="homepage">Homepage</Link>
