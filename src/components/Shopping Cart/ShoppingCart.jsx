@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useCartItems from "../hooks/useCartItems";
+import styles from "./ShoppingCart.module.css";
 
 function ShoppingCart() {
   const { cartItems, removeFromCart } = useCartItems();
@@ -18,15 +19,16 @@ function ShoppingCart() {
   console.log("Rendering cart items:", cartItems);
 
   return (
-    <div>
+    <div className={styles.cart}>
       <h1>The shopping cart should appear here!</h1>
       {cartItems.length !== 0 ? (
         <>
           <ul>
             {cartItems.map((product) => (
-              <div key={product.uuid} className="cart-card">
+              <div key={product.uuid} className={styles.cartCard}>
                 <li>
-                  {product.title}
+                  <p>{product.title}</p>
+                  <img src={product.image} />
                   <button onClick={() => handleRemoval(product.uuid)}>Remove Item</button>
                 </li>
               </div>
