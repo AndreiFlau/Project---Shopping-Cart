@@ -19,7 +19,7 @@ imgs/camera/camera_lt5iwp_c_scale,w_1400.jpg 1400w"
           alt="photo of a camera"
         />
         <h2>Here you can find a variety of different items.</h2>
-        <p>Shop for: </p>
+        <h2>Shop for: </h2>
         <ul>
           <li>
             <h2>Electronics </h2>

@@ -10,10 +10,14 @@ function App() {
         <div className={styles.headerSection}>
           <ul>
             <li>
-              <Link to="homepage">Homepage</Link>
+              <Link to="homepage">
+                <button>Homepage</button>
+              </Link>
             </li>
             <li>
-              <Link to="shop">Shop</Link>
+              <Link to="shop">
+                <button>Shop</button>
+              </Link>
             </li>
           </ul>
         </div>

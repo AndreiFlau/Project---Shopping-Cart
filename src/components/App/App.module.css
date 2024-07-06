@@ -1,7 +1,8 @@
 .header {
   display: grid;
   align-items: center;
-  background-color: antiquewhite;
+  /* background-color: #558bff; */
+  background-color: #fdff90;
 }
 
 .header ul {
@@ -19,6 +20,36 @@
   list-style: none;
 }
 
-.headerSection {
-  background-color: wheat;
+/* .headerSection {
+  background-color: #808A9F;
+} */
+
+.header a {
+  text-decoration: none;
+}
+
+.header a:visited {
+  color: inherit;
+}
+
+.header button {
+  background-color: #ffffff;
+}
+
+.header button:hover {
+  background-color: #f5f5f5;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  transition: background-color 0.1s, box-shadow 0.1s;
+  background-color: #ffd64c;
+  padding: 15px;
+}
+
+button:hover {
+  box-shadow: #00000047 0px 2px 11px;
+  background-color: #ffc400;
 }
