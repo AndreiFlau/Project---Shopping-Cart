@@ -1,3 +1,3 @@
 # Shopping Cart
 
-Shopping cart mock webpage made with React
+Shopping cart mock webpage made with React.
