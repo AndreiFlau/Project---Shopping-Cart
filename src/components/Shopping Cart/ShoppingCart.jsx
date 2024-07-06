@@ -20,7 +20,7 @@ function ShoppingCart() {
 
   return (
     <div className={styles.cart}>
-      <h1>The shopping cart should appear here!</h1>
+      <h1>Your shopping cart</h1>
       {cartItems.length !== 0 ? (
         <>
           <ul>
