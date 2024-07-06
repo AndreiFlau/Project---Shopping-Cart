@@ -78,6 +78,7 @@
   min-width: 80%;
   min-height: 50%;
   overflow: auto;
+  box-shadow: white -1px -3px 5px 0px;
 }
 
 .buy {
