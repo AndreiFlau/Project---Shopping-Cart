@@ -10,6 +10,41 @@
 .shop a {
   position: fixed;
   align-self: flex-end;
+  display: flex;
+  text-decoration: none;
+  background-color: white;
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: #00000047 0px 2px 11px;
+  transition: box-shadow 0.4s;
+}
+
+.shop a:hover {
+  box-shadow: #00000047 0px 2px 11px 2px;
+}
+
+.shop a p {
+  position: relative;
+  top: -28px;
+  right: 52px;
+  background-color: black;
+  color: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+}
+
+.shop a:visited {
+  color: inherit;
+}
+
+.shop a svg {
+  position: relative;
+  left: 13px;
+  width: 40px;
 }
 
 .products {
