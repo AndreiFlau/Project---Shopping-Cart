@@ -1,7 +1,3 @@
-# React/Vite/Vitest/React Testing Library
+# Shopping Cart
 
-Custom testing template.
-
-Just run these commands:
-npm install
-npm run dev
+Shopping cart mock webpage made with React
