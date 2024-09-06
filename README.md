@@ -10,5 +10,5 @@ Simply clone the repo and run the commands below.
 
 ```powershell
   npm install
-  npm run start
+  npm run dev
 ```
